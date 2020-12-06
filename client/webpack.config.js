@@ -26,7 +26,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 9000,
+    port: 3000,
     open: true,
     host: '0.0.0.0',
     disableHostCheck: true
