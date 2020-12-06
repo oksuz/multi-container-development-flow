@@ -12,7 +12,7 @@ script:
   - docker run oksuz/eb-server-test npm run test
   
 
-after_install:
+after_success:
   - docker build -t oksuz/multi-eb-client ./client 
   - docker build -t oksuz/multi-eb-worker ./worker 
   - docker build -t oksuz/multi-eb-server ./server 
