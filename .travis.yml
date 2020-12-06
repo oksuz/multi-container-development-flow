@@ -1,0 +1,24 @@
+services:
+  - docker
+
+before_install:
+  - docker build -t oksuz/eb-client-test -f ./client/Dockerfile.dev ./client 
+  - docker build -t oksuz/eb-worker-test -f ./worker/Dockerfile.dev ./worker 
+  - docker build -t oksuz/eb-server-test -f ./server/Dockerfile.dev ./server 
+
+script:
+  - docker run oksuz/eb-client-test npm run test
+  - docker run oksuz/eb-worker-test npm run test
+  - docker run oksuz/eb-server-test npm run test
+  
+
+after_install:
+  - docker build -t oksuz/multi-eb-client ./client 
+  - docker build -t oksuz/multi-eb-worker ./worker 
+  - docker build -t oksuz/multi-eb-server ./server 
+  - docker build -t oksuz/multi-eb-router ./nginx 
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker push oksuz/multi-eb-client
+  - docker push oksuz/multi-eb-worker
+  - docker push oksuz/multi-eb-server
+  - docker push oksuz/multi-eb-nginx
