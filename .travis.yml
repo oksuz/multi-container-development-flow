@@ -21,4 +21,4 @@ after_success:
   - docker push oksuz/multi-eb-client
   - docker push oksuz/multi-eb-worker
   - docker push oksuz/multi-eb-server
-  - docker push oksuz/multi-eb-nginx
+  - docker push oksuz/multi-eb-router
