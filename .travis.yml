@@ -22,3 +22,15 @@ after_success:
   - docker push oksuz/multi-eb-worker
   - docker push oksuz/multi-eb-server
   - docker push oksuz/multi-eb-router
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-2
+  app: multi-container-app
+  env: MultiContainerApp-env
+  bucket_name: elasticbeanstalk-eu-west-2-099893186618
+  bucket_path: multi-container
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_ACCESS_KEY_SECRET

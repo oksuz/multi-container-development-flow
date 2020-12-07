@@ -1,0 +1,38 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "eb-client",
+      "image": "oksuz/multi-eb-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "eb-server",
+      "image": "oksuz/multi-eb-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "eb-worker",
+      "image": "oksuz/multi-eb-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "eb-router",
+      "image": "oksuz/multi-eb-router",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "eb-client",
+        "api"
+      ]
+    }
+  ]
+}
