@@ -5,24 +5,28 @@
       "name": "eb-client",
       "image": "oksuz/multi-eb-client",
       "hostname": "client",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "eb-server",
       "image": "oksuz/multi-eb-server",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "eb-worker",
       "image": "oksuz/multi-eb-worker",
       "hostname": "worker",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "eb-router",
       "image": "oksuz/multi-eb-router",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
