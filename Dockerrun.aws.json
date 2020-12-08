@@ -2,14 +2,14 @@
   "AWSEBDockerrunVersion": 2,
   "containerDefinitions": [
     {
-      "name": "eb-client",
+      "name": "client",
       "image": "oksuz/multi-eb-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
-      "name": "eb-server",
+      "name": "api",
       "image": "oksuz/multi-eb-server",
       "hostname": "api",
       "essential": false,
@@ -34,7 +34,7 @@
         }
       ],
       "links": [
-        "eb-client",
+        "client",
         "api"
       ]
     }
