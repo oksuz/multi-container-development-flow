@@ -57,6 +57,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div style={{ textAlign: "center", margin:50 }}>
+        <h1>Fib Calculator</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Index: </label>
           <input
